@@ -14,6 +14,7 @@ class OrdersController < ApplicationController
   def create
     @order = current_user.orders.new(order_params)
     if @order.save
+      UsersMailer.order_created(@order).deliver_now
       flash[:success] = 'Order was successfully created'
       redirect_to :back
     else
@@ -26,6 +27,8 @@ class OrdersController < ApplicationController
   end
 
   def destroy
+    @order = Order.find(params[:id])
+    UsersMailer.order_destroyed(@order).deliver_now
     Order.find(params[:id]).destroy
     # flash[:success] = 'Order deleted'
     redirect_to :back

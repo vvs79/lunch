@@ -1,11 +1,11 @@
 class UsersMailer < ApplicationMailer
-	def user_destroyed(user)
-    @user = user
-    mail to: 'vidoc1979@gmail.com', subject: "User - #{@user.email} destroyed"
+	def order_destroyed(order)
+    @order = order
+    mail to: 'vidoc1979@gmail.com', subject: "User: #{@order.user.email} destroyed order: #{@order.id}"
   end
 
-  def user_edited(user)
-    @user = user
-    mail to: 'vidoc1979@gmail.com', subject: "User - #{@user.email} edited"
+  def order_created(order)
+    @order = order
+    mail to: 'vidoc1979@gmail.com', subject: "User: #{@order.user.email} created order: #{@order.id}"
   end
 end

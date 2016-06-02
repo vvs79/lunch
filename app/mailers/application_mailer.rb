@@ -1,3 +1,3 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "my.test.task.info@gmail.com", template_path: 'mailers/users'
+  default from: "vvs-lunch@gmail.com", template_path: 'mailers/orders'
 end
