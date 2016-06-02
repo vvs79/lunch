@@ -1,0 +1,17 @@
+- provide(:title, 'New item')
+- provide(:button_text, 'Add item')
+.container.content-area
+  h1.center
+    | New item
+  .form-group
+    = form_for @item, html: { multipart: true } do |f|
+      //= render 'shared/error_messages', object: f.object
+      = f.label :name, "Name"
+      = f.text_field :name, placeholder: "Name", class: 'form-control'
+      = f.label :price, "Price"
+      = f.text_field :price, placeholder: "Price", class: 'form-control'
+      .center
+        = f.label :course, 'Course'
+        span &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        = f.select :course, options_for_select([['First', 1], ['Main', 2], ['Drink', 3]], 1)
+      = f.submit yield(:button_text), class: "btn btn-md btn-success col-md-4 col-md-offset-4"

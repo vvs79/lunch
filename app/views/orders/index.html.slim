@@ -1,0 +1,31 @@
+- provide(:title, 'All orders')
+.container.content-area
+  h3.center
+    | All orders
+  br
+  .center
+    .table-responsive
+      table.table.table-bordered.table-hover
+        tr.active
+          th
+            h5 ORDER ID
+          th
+            h5 Sum
+          th
+            h5 Date
+          th colspan="2"
+            h5 Actions
+        - @orders.each do |order|
+          tr.info
+            td.center
+              = order.id
+            td.center
+              = order.sum_order
+            td.center
+              = order.created_at
+            td.center
+              = link_to order_path(order), rel: 'tooltip', title: 'Show order', class: "btn btn-sm btn-info" do
+                order.glyphicon.glyphicon-ok-circle
+            td.center
+              = link_to order_path(order), method: :delete, data: { confirm: 'Delete order?' }, rel: 'tooltip', title: 'Delete order', class: "btn btn-sm btn-danger" do
+                order.glyphicon.glyphicon-remove

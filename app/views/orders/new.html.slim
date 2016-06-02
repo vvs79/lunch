@@ -1,0 +1,30 @@
+- provide(:title, 'Main page')
+.container.content-area
+  h3.center
+    | All menus
+  = render 'layouts/messages'
+  ul.nav.nav-tabs
+    li.active
+      a data-toggle="tab" href="#day0"
+        | Today: #{@date.strftime('%a %d %b %Y')}
+    - 6.times do |i|
+      - @date -= 1
+      - day_number = '#day' + (i+1).to_s
+      li
+        a data-toggle="tab" href="#{day_number}"
+          = @date.strftime('%a %d %b %Y')
+
+
+
+  .tab-content
+    #day0.tab-pane class="fade in active"
+      table-responsive
+        table.table.table-bordered.table-hover
+          = render 'form', items: menu_for_today, d: 0
+    
+    - 6.times do |i|
+      - day_number = 'day' + (i+1).to_s
+      div id="#{day_number}" class="tab-pane fade"
+        .table-responsive
+          table.table.table-bordered.table-hover
+            = render 'form', items: day_menu(i+1), d: i+1

@@ -1,0 +1,28 @@
+- provide(:title, 'All items')
+.container.content-area
+  h3.center
+    | All items
+  br
+  .center
+    .table-responsive
+      table.table.table-bordered.table-hover
+        tr.active
+          th.width_15
+            h5 name
+          th.width_15
+            h5 price
+          th.width_15
+            h5 course
+          th.width_15
+            h5 date
+
+        - @items.each do |item|
+  		  tr.info
+            td.center
+              = item.name
+            td.center
+              = item.price
+            td.center
+              = item.course
+            td.center
+              = item.created_at

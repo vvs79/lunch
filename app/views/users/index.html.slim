@@ -1,0 +1,33 @@
+- provide(:title, 'All users')
+.container.content-area
+  h3.center
+    | All users
+  br
+  .row
+    = render 'layouts/messages'
+  br
+  .row
+    = render 'search_form_for'
+  br
+  .center
+    .table-responsive
+      table.table.table-bordered.table-hover
+        tr.active
+          th.width_5
+          th.width_15
+            h5 Email
+          th.width_15
+            h5 Login
+          th.width_15
+            h5 First name
+          th.width_15
+            h5 Last name
+          th.width_15
+            h5 Action
+        = render 'user'
+  - if @users.count > 10
+    br
+    .col-sm-12
+      .center
+        = will_paginate
+  br

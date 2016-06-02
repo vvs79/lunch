@@ -1,0 +1,15 @@
+- @users.each do |user|
+  tr.info
+    td.center
+      = image_tag user.avatar.url, height:'30px' if user.avatar?
+    td.center
+      = user.email
+    td.center
+      | #{user.login}
+    td.center
+      = user.first_name
+    td.center
+      = user.last_name
+    td.center
+      = link_to user_path(user), rel: 'tooltip', title: 'Show', class: "btn btn-sm btn-info" do
+        user.glyphicon.glyphicon-ok-circle

@@ -1,0 +1,13 @@
+- provide(:title, @order.id)
+.container.content-area
+  h3.center
+    | ORDER - #{@order.id}
+  = render 'layouts/messages'
+  br
+  - @order.items.each do |item|
+    p
+      | #{item.name} - #{item.price}, course: #{item.course}
+  br
+  p
+    = link_to orders_path, class: "btn btn-sm btn-info"
+      | All orders
