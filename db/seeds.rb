@@ -17,6 +17,8 @@ User.create!(login: 'user', first_name: 'User', last_name: 'User', email: 'u@u.c
   User.create!(login: login, first_name: first_name, last_name: last_name, email: email, password: '12345678', admin: false)
 end
 
+@date = DateTime.now
+
 4.times do |i|
   name = 'item12'+i.to_s
   price = 120 + i
