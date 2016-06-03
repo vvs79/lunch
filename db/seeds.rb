@@ -87,3 +87,24 @@ end
   created_at = @date - 1
   Item.create!(name: name, price: price, course: course, created_at: created_at)
 end
+
+# 4.times do |i|
+    #   name = 'item031'+i.to_s
+    #   price = 31 + i
+    #   course = '1'
+    #   Item.create!(name: name, price: price, course: course)
+    # end
+
+    # 3.times do |i|
+    #   name = 'item032'+i.to_s
+    #   price = 42 + i
+    #   course = '2'
+    #   Item.create!(name: name, price: price, course: course)
+    # end
+
+    # 5.times do |i|
+    #   name = 'item033'+i.to_s
+    #   price = 53 + i
+    #   course = '3'
+    #   Item.create!(name: name, price: price, course: course)
+    # end

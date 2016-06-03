@@ -2,6 +2,7 @@ class OrdersController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    @date = DateTime.now
     @orders = current_user.admin? ? Order.all.order(id: :desc) : current_user.orders.all.order(id: :desc)
   end
 

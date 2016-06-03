@@ -19,6 +19,10 @@ module ApplicationHelper
     Item.where("DATE(created_at) = ?", Date.today - day)
   end
 
+  def day_order(day)
+    Order.where("DATE(created_at) = ?", Date.today - day)
+  end
+
   # def user_order_for_today?
   #   current_user.orders.where("DATE(created_at) = ?", Date.today).count > 0 ? false : true
   # end
