@@ -3,7 +3,7 @@
   h3.center
     | All menus
   = render 'layouts/messages'
-  - if @date.wday > 0 && @date.wday < 6
+  - if @date.wday > 0 && @date.wday < 7
     - days = @date.wday - 1
     ul.nav.nav-tabs
       li.active

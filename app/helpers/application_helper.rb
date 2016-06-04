@@ -23,6 +23,14 @@ module ApplicationHelper
     Order.where("DATE(created_at) = ?", Date.today - day)
   end
 
+  def sum_orders(orders)
+    sum = 0
+    orders.each do |order|
+      sum += order.total
+    end
+    sum
+  end
+
   # def user_order_for_today?
   #   current_user.orders.where("DATE(created_at) = ?", Date.today).count > 0 ? false : true
   # end

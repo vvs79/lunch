@@ -17,7 +17,6 @@
             h5 Date
           th colspan="2"
             h5 Actions
-        - sum_orders = 0
         - @orders.each do |order|
           tr.info
             td.center
@@ -26,16 +25,15 @@
               = link_to user_path(order.user), rel: 'tooltip', title: 'Show user'
                 = order.user.email
             td.center
-              = order.sum_order
-              - sum_orders += order.sum_order
+              = order.total
             td.center
               = order.created_at.strftime('%a %d %b %Y')
             td.center
-              = link_to order_path(order), rel: 'tooltip', title: 'Show order', class: "btn btn-sm btn-info" do
+              = link_to api_order_path(order), rel: 'tooltip', title: 'Show order', class: "btn btn-sm btn-info" do
                 order.glyphicon.glyphicon-ok-circle
             td.center
-              = link_to order_path(order), method: :delete, data: { confirm: 'Delete order?' }, rel: 'tooltip', title: 'Delete order', class: "btn btn-sm btn-danger" do
+              = link_to api_order_path(order), method: :delete, data: { confirm: 'Delete order?' }, rel: 'tooltip', title: 'Delete order', class: "btn btn-sm btn-danger" do
                 order.glyphicon.glyphicon-remove
         tr.info
           td.center colspan="6"
-            | Total launch cost for today - #{sum_orders}$
+            | Total launch cost for today - #{sum_orders(@orders)}$

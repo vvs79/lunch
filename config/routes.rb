@@ -4,9 +4,15 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: { registrations: 'registrations' }
 
-  resources :users
-  resources :items
-  resources :orders do
+  resources :users, only: [:show, :index]
+
+  namespace :api do
+    resources :orders, only: [:index, :show, :destroy]
+  end
+
+  resources :items, only: [:new, :create, :index]
+
+  resources :orders, only: [:new, :create] do
     get :orders_for_today, on: :collection
   end
 

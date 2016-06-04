@@ -5,19 +5,19 @@ h3.center
       //= render 'shared/error_messages', object: f.object
       - course_items = items.where(course: '1')
       .center
-        = f.label :item_ids, "First course"
+        = f.label :item_ids, "First course (select one item)"
         span &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        = f.collection_select(:item_ids, course_items, :id, :name_with_price, {prompt: 'Select one item from first course'}, {multiple: true, class: 'form-control'})
+        = f.collection_select(:item_ids, course_items, :id, :name_with_price, {}, {multiple: true, class: 'form-control', required: true})
       - course_items = items.where(course: '2')
       .center
-        = f.label :item_ids, "Main course"
+        = f.label :item_ids, "Main course (select one item)"
         span &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        = f.collection_select(:item_ids, course_items, :id, :name_with_price, {prompt: 'Select one item from main course'}, {multiple: true, class: 'form-control'})
+        = f.collection_select(:item_ids, course_items, :id, :name_with_price, {}, {multiple: true, class: 'form-control', required: true})
       - course_items = items.where(course: '3')
       .center
-        = f.label :item_ids, "Drink"
+        = f.label :item_ids, "Drink (select one item)"
         span &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        = f.collection_select(:item_ids, course_items, :id, :name_with_price, {prompt: 'Select one drink'}, {multiple: true, class: 'form-control'})
+        = f.collection_select(:item_ids, course_items, :id, :name_with_price, {}, {multiple: true, class: 'form-control', required: true})
       
       - if current_user.orders.where("DATE(created_at) = ?", Date.today).count == 0
         = f.submit "Submit", class: "btn btn-md btn-success col-md-4 col-md-offset-4" if d == 0

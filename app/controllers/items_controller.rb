@@ -13,7 +13,7 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save
-      redirect_to :back
+      redirect_to new_item_path
     else
       render 'new'
     end
@@ -22,7 +22,6 @@ class ItemsController < ApplicationController
   private
 
     def item_params
-      params.require(:item).permit(:name, :price, :course,)
+      params.require(:item).permit(:name, :price, :course)
     end
-
 end

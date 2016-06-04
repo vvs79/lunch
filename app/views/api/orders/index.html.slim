@@ -12,18 +12,16 @@
           a data-toggle="tab" href="#{day_number}"
             = date.strftime('%a %d %b %Y')
 
-
-
   .tab-content
     #da0.tab-pane class="fade in active"
       table-responsive
         table.table.table-bordered.table-hover
-          = render 'form2', orders: @orders
+          = render 'form', orders: @orders
    
     - @date.wday.times do |i|
       - day_number = 'da' + (i+1).to_s
       div id="#{day_number}" class="tab-pane fade"
         .table-responsive
           table.table.table-bordered.table-hover
-            = render 'form2', orders: day_order(i)
+            = render 'form', orders: day_order(i)
   

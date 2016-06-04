@@ -17,12 +17,12 @@ tr.active
       = link_to user_path(order.user), rel: 'tooltip', title: 'Show user'
         = order.user.email
     td.center
-      = order.sum_order
+      = order.total
     td.center
       = order.created_at.strftime('%a %d %b %Y')
     td.center
-      = link_to order_path(order), rel: 'tooltip', title: 'Show order', class: "btn btn-sm btn-info" do
+      = link_to api_order_path(order), rel: 'tooltip', title: 'Show order', class: "btn btn-sm btn-info" do
         order.glyphicon.glyphicon-ok-circle
     td.center
-      = link_to order_path(order), method: :delete, data: { confirm: 'Delete order?' }, rel: 'tooltip', title: 'Delete order', class: "btn btn-sm btn-danger" do
+      = link_to api_order_path(order), method: :delete, data: { confirm: 'Delete order?' }, rel: 'tooltip', title: 'Delete order', class: "btn btn-sm btn-danger" do
         order.glyphicon.glyphicon-remove

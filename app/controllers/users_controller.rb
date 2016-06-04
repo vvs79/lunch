@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   rescue ActiveRecord::RecordNotFound
     flash[:danger] = 'User does not exist'
-    redirect_to users_admin_index_path
+    redirect_to new_order_path
   end
 
 end
