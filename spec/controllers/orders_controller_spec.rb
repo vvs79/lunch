@@ -24,7 +24,7 @@ describe OrdersController do
     it "redirect to action index if order is not found" do
       order = create(:order)
       get :show, id: order.id
-      expect(response).to redirect_to(orders_path)
+      expect(response).to redirect_to(api_v1_orders_path)
     end
 
   end
@@ -37,7 +37,7 @@ describe OrdersController do
       item3 = create(:item, course: "3")
       order = create(:order, item_ids: [item1.id, item2.id, item3.id])
       delete :destroy, id: order.id
-      expect(response).to redirect_to(orders_path)
+      expect(response).to redirect_to(api_v1_orders_path)
     end
 
   end

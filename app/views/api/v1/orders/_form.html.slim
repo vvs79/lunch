@@ -21,8 +21,8 @@ tr.active
     td.center
       = order.created_at.strftime('%a %d %b %Y')
     td.center
-      = link_to api_order_path(order), rel: 'tooltip', title: 'Show order', class: "btn btn-sm btn-info" do
+      = link_to api_v1_order_path(order), rel: 'tooltip', title: 'Show order', class: "btn btn-sm btn-info" do
         order.glyphicon.glyphicon-ok-circle
     td.center
-      = link_to api_order_path(order), method: :delete, data: { confirm: 'Delete order?' }, rel: 'tooltip', title: 'Delete order', class: "btn btn-sm btn-danger" do
+      = link_to api_v1_order_path(order), method: :delete, data: { confirm: 'Delete order?' }, rel: 'tooltip', title: 'Delete order', class: "btn btn-sm btn-danger" do
         order.glyphicon.glyphicon-remove

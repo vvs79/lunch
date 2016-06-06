@@ -24,7 +24,7 @@ describe ItemsController do
       user = create(:user, admin: false)
       sign_in user
       post :create, item: {name: "item 1", price: 15, course: '1'}
-      expect(response).to redirect_to(orders_path)
+      expect(response).to redirect_to(new_order_path)
     end
 
   end

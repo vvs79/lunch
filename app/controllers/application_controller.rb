@@ -5,6 +5,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def check_if_admin
-    redirect_to orders_path, notice: 'Access Denied' unless current_user.admin?
+    redirect_to new_order_path, notice: 'Access Denied' unless current_user.admin?
   end
 end

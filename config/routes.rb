@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :index]
 
   namespace :api do
-    resources :orders, only: [:index, :show, :destroy]
+    namespace :v1 do
+      resources :orders, only: [:index, :show, :destroy]
+    end
   end
 
   resources :items, only: [:new, :create, :index]

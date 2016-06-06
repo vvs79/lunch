@@ -1,4 +1,4 @@
-class Api::OrdersController < Api::BaseController
+class Api::V1::OrdersController < Api::V1::BaseController
 	before_action :authenticate_user!
 
   def index
@@ -25,7 +25,7 @@ class Api::OrdersController < Api::BaseController
   def destroy
     @order = Order.find(params[:id])
     UsersMailer.order_destroyed(@order).deliver_now
-    respond_with @order.destroy, location: api_orders_path
+    respond_with @order.destroy, location: api_v1_orders_path
   end
 
   # def orders_for_today
